@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>TP econtact - mvc - page d'accueil avec liste des contacts</title>
+		<title>Projet Pweb, page pour louer une voiture</title>
 
 		<link rel="stylesheet" href="./vue/styleCSS/style.css"/>
 		<link rel="stylesheet" href="./vue/styleCSS/utilisateur.css"/>
@@ -14,7 +14,7 @@
 
 			<?php require ("vue/menu/abo.tpl");?>
 
-		<h1> Louer un vehicule ici! </h1>
+		<h1> Louez un vehicule ici! </h1>
 	
 
 
@@ -36,6 +36,11 @@
 					echo ('</table>');
 				}
 				else echo ('Pas de voitures disponibles à la location.');
+				
+				
+				<form>
+				<SELECT name="type" size=1>
+				<OPTION
 
 
 			?>
