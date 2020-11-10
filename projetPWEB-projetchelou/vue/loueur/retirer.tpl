@@ -25,8 +25,18 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="c1" id="ck1">
         <label class="form-check-label" for="ck1">
-    <div id="main">
+   
+   
+   <div id="main">
+	
 	<?php
+	<div class="container">
+     <h1>Formulaires</h1>
+     <form>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="c1" id="ck1">
+        <label class="form-check-label" for="ck1">
+	
 		if ($Contact != false) {
 			echo ("<h2 style='color:blue'> Voici vos voitures :</h2>");
 			echo ('<table>');
@@ -41,17 +51,18 @@
 			}
 			
 			echo ('</table>');
+			</label>
 		}
-		else echo ('Pas de voitures en cours de location.');
+		
 	?>
 	</div>
-	</label>
+	
 	
     
     
     
     
-    
+    /*
     <div class="container">
      <h1>Formulaires</h1>
      <form>
@@ -65,7 +76,7 @@
       </div>
       
 
-</form>
+</form> */
 
 
 </body></html>
