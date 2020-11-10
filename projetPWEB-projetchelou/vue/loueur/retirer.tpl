@@ -24,34 +24,32 @@
      <form>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="c1" id="ck1">
-        <label class="form-check-label" for="ck1">
+        <label class="form-check-label" for="ck1"></label>
    
    
    <div id="main">
 	
 	<?php
-	<div class="container">
-     <h1>Formulaires</h1>
-     <form>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="c1" id="ck1">
-        <label class="form-check-label" for="ck1">
 	
 		if ($Contact != false) {
 			echo ("<h2 style='color:blue'> Voici vos voitures :</h2>");
 			echo ('<table>');
 			echo ('<tr><th> Type </th><th> Caractéristiques </th><th> Photo </th></tr>');
 			foreach ($Contact as $c) {
-				$chemin =  "vue/images/" . $c['photo'];
-				echo "<tr class='contact'>";
-				echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
-				echo ("<td>" . $c['caract'] . "</td>");
-				echo ("<td> <img src=".$chemin."> </td>");
-				echo "</tr>\n";
+				<div class="form-check">
+       				<input class="form-check-input" type="checkbox" value="c1" id="ck1">
+        			<label class="form-check-label" for="ck1">
+					$chemin =  "vue/images/" . $c['photo'];
+					echo "<tr class='contact'>";
+					echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
+					echo ("<td>" . $c['caract'] . "</td>");
+					echo ("<td> <img src=".$chemin."> </td>");
+					echo "</tr>\n";
+				</label>
 			}
 			
 			echo ('</table>');
-			</label>
+			
 		}
 		
 	?>
@@ -62,7 +60,7 @@
     
     
     
-    /*
+    <!--
     <div class="container">
      <h1>Formulaires</h1>
      <form>
@@ -76,7 +74,7 @@
       </div>
       
 
-</form> */
+</form> --!>
 
 
 </body></html>
