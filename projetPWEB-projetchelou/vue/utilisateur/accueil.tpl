@@ -14,7 +14,7 @@
 
 			<?php require ("vue/menu/abo.tpl");?>
 
-		<h1> Coucou </h1>
+	
 		<h1 style="padding-bottom:5%"> Bienvenue!
 		</h1>
 
