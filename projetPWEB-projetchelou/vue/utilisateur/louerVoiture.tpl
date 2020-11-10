@@ -37,17 +37,36 @@
 				}
 				else echo ('Pas de voitures disponibles à la location.');
 				
-				
-				<form>
+			?>
+			
+			
+			<form>
 				<SELECT name="type" size=1>
+				<?php 
 				foreach ($Contact as $c) {
 					echo('<OPTION>' . $c['type'] . '</OPTION>');
-				}
+				} 
+				?>
 				</SELECT>
-				</form>
+			</form>
+				
+			
+			
+			<label for="start">Date de début:</label>
 
+			<input type="date" id="start" name="location-start"
+      			 value="2020-11-10"
+    			   min="2020-01-01" max="2021-11-01">
 
-			?>
+			
+			<label for="end">Date de fin:</label>
+
+			<input type="date" id="end" name="location-end"
+      			 value="2020-11-10"
+    			   min="2020-11-01" max="2021-11-01">
+			
+			
+				
 		</div>
 	</body>
 </html>
