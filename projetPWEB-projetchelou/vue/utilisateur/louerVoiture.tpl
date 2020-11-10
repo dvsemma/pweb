@@ -40,7 +40,11 @@
 				
 				<form>
 				<SELECT name="type" size=1>
-				<OPTION
+				foreach ($Contact as $c) {
+					echo('<OPTION>' . $c['type'] . '</OPTION>');
+				}
+				</SELECT>
+				</form>
 
 
 			?>
