@@ -13,53 +13,30 @@
 
 <h1> Retirer un vehicule </h1>
 	<form action="index.php?controle=loueur&action=retirerVehicule" method="post">
-    
-   
-   
-   
-   
-   
-    <div class="container">
-     <h1>Formulaires</h1>
-     <form>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="c1" id="ck1">
-        <label class="form-check-label" for="ck1"></label>
-   
-   
-   <div id="main">
-	
+
 	<?php
-	
-		if ($Contact != false) {
-			echo ("<h2 style='color:blue'> Voici vos voitures :</h2>");
-			echo ('<table>');
-			echo ('<tr><th> Type </th><th> Caractéristiques </th><th> Photo </th></tr>');
+  	if ($Contact != false) {
+
 			foreach ($Contact as $c) {
-				<div class="form-check">
-       				<input class="form-check-input" type="checkbox" value="c1" id="ck1">
-        			<label class="form-check-label" for="ck1">
-					$chemin =  "vue/images/" . $c['photo'];
-					echo "<tr class='contact'>";
-					echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
-					echo ("<td>" . $c['caract'] . "</td>");
-					echo ("<td> <img src=".$chemin."> </td>");
-					echo "</tr>\n";
-				</label>
+        echo  ('<input name="id" class="form-check-input" type="checkbox" value="c1" id="ck1">');
+        echo ('<label class="form-check-label" for="ck1"></label>');
+				$chemin =  "vue/images/" . $c['photo'];
+				echo ( $c['type'] . "  -  " . $c['caract'] . "   <img src=".$chemin."> <br>" );
 			}
-			
-			echo ('</table>');
-			
+
 		}
-		
+
 	?>
+  <input type= "submit"  value="Retirer">
+
+</form>
 	</div>
-	
-	
-    
-    
-    
-    
+
+
+
+
+
+
     <!--
     <div class="container">
      <h1>Formulaires</h1>
@@ -72,9 +49,9 @@
         <input class="form-check-input" type="checkbox" value="c2" id="ck2">
         <label class="form-check-label" for="ck2">Case 2</label>
       </div>
-      
 
-</form> --!>
 
+</form>
+-->
 
 </body></html>

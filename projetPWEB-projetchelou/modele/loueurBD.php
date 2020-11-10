@@ -40,6 +40,12 @@ function ajouter($type, $caract, $photo) {
 
 
 function retirer($id){
+	require('modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+	$sql='DELETE FROM Vehicule  WHERE id=:id';
+	$req = $pdo->prepare($sql);
+	$req->bindParam(':id', $id);
+	$req->execute();
 
 
 }

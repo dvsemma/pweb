@@ -79,12 +79,37 @@ function verif_voiture($type,$caract,$photo) { // verification des parametres po
 
        }
 
+       else return false;
+
     }
 
 
 
 function retirerVehicule(){
 
+  require("modele/contactBD.php");
+  $Contact = voituresDispo();
+
+  $type = isset($_POST['type'])?trim($_POST['type']):''; //comment recuperer id???
+  $msg = "";
+
+  require("modele/loueurBD.php");
+
+  if  (count($_POST)==0)
+              require("./vue/loueur/retirer.tpl") ;
+  else {
+    if(empty($_POST['type'])) {
+          $msg ="Vous n'avez pas sélectionné de véhicule ";
+          require("./vue/loueur/retirer.tpl") ;
+    }
+      else {
+      retirer($id);
+      echo "Le vehicule a bien été retiré de votre stock";
+      $nexturl = "index.php?controle=loueur&action=retirerVehicule";
+      header("Location:" . $nexturl); // On retourne à la page index !!!
+
+    }
+  }
 }
 
 function factures(){

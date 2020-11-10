@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -12,9 +12,9 @@
 
 	<body>
 
-			<?php require ("vue/menu/abo.tpl");?>
+			<?php require ("vue/menu/loueur.tpl");?>
 
-		<h1 style="padding-bottom:5%"> Bienvenue!
+		<h1> Bienvenue!
 		</h1>
 
 
@@ -22,7 +22,7 @@
 		<div id="main">
 			<?php
 				if ($Contact != false) {
-					echo ("<h2 style='color:blue'> Voici vos contacts :</h2>");
+					echo ("<h2 style='color:blue'> Voici votre stock de vehicules :</h2>");
 					echo ('<table>');
 					echo ('<tr><th> Type </th><th> Caractéristiques </th><th> Photo </th></tr>');
 					foreach ($Contact as $c) {
