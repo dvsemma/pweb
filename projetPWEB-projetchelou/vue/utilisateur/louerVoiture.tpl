@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Projet Pweb, page pour louer une voiture</title>
+		<title>TP econtact - mvc - page d'accueil avec liste des contacts</title>
 
 		<link rel="stylesheet" href="./vue/styleCSS/style.css"/>
 		<link rel="stylesheet" href="./vue/styleCSS/utilisateur.css"/>
@@ -14,8 +14,8 @@
 
 			<?php require ("vue/menu/abo.tpl");?>
 
-		<h1> Louez un vehicule ici! </h1>
-	
+		<h1> Louer un vehicule ici! </h1>
+
 
 
 
@@ -36,37 +36,36 @@
 					echo ('</table>');
 				}
 				else echo ('Pas de voitures disponibles à la location.');
-				
+
+
 			?>
-			
-			
-			<form>
-				<SELECT name="type" size=1>
-				<?php 
-				foreach ($Contact as $c) {
-					echo('<OPTION>' . $c['type'] . '</OPTION>');
-				} 
-				?>
-				</SELECT>
-			</form>
-				
-			
-			
-			<label for="start">Date de début:</label>
-
-			<input type="date" id="start" name="location-start"
-      			 value="2020-11-10"
-    			   min="2020-01-01" max="2021-11-01">
-
-			
-			<label for="end">Date de fin:</label>
-
-			<input type="date" id="end" name="location-end"
-      			 value="2020-11-10"
-    			   min="2020-11-01" max="2021-11-01">
-			
-			
-				
 		</div>
+
+	<h1> Veuillez remplir le formulaire suivant pour louer un vehicule: </h1>
+
+		<form action="index.php?controle=abo&action=louer" method="post">
+                <SELECT name="type" size=1>
+            	<?php    foreach ($Contact as $c) {
+                    echo('<OPTION>' . $c['type'] . '</OPTION>');
+                } 	?>
+                </SELECT>
+
+								<label for="start">Date de début:</label>
+
+            <input type="date" id="start" name="location-start"
+                   value="2020-11-10"
+                   min="2020-01-01" max="2021-11-01">
+
+
+            <label for="end">Date de fin:</label>
+
+            <input type="date" id="end" name="location-end"
+                   value="2020-11-10"
+                   min="2020-11-01" max="2021-11-01">
+
+									  <input type= "submit"  value="Louer">
+                </form>
+
+
 	</body>
 </html>
