@@ -12,7 +12,7 @@
 
 	<body>
 
-			<?php require ("vue/menu/abo.tpl");?>
+			<?php require ("vue/menu/loueur.tpl");?>
 
 		<h1> Voici les voitures louées en ce moment</h1>
 
