@@ -14,8 +14,6 @@
 
 			<?php require ("vue/menu/abo.tpl");?>
 
-		<h1> Factures </h1>
-
   
   <h1> Veuillez choisir la voiture pour laquelle vous voulez payer:</h1>
 
