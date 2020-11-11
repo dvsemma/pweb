@@ -14,7 +14,7 @@
 
 			<?php require ("vue/menu/abo.tpl");?>
 
-		<h1> Louer un vehicule ici! </h1>
+		<h1> Louez un vehicule ici! </h1>
 
 
 
