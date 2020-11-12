@@ -9,7 +9,8 @@
 
 <body>
 
-	<?php require("vue/menu/loueur.tpl"); ?>
+	<?php require("vue/menu/loueur.tpl");
+  ?>
 
 <h1> Retirer un vehicule </h1>
 	<form action="index.php?controle=loueur&action=retirerVehicule" method="post">
@@ -18,15 +19,16 @@
   	if ($Contact != false) {
 
 			foreach ($Contact as $c) {
-        echo  ('<input name="id" class="form-check-input" type="checkbox" value="c1" id="ck1">');
+        echo  ("<input name='id[]' class='form-check-input' type='checkbox' value=".$c['id']." >");
         echo ('<label class="form-check-label" for="ck1"></label>');
 				$chemin =  "vue/images/" . $c['photo'];
-				echo ( $c['type'] . "  -  " . $c['caract'] . "   <img src=".$chemin."> <br>" );
+				echo ( $c['type'] . "  -  " . $c['caract'] . "  <br> <img src=".$chemin." width='150px' height='...'> <br>" );
 			}
-
 		}
+    	else echo ('Pas de voitures en stock.');
 
-	?>
+?>
+
   <input type= "submit"  value="Retirer">
 
 </form>

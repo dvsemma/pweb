@@ -12,9 +12,11 @@
 
 	<body>
 
-			<?php require ("vue/menu/abo.tpl");?>
+			<?php require ("vue/menu/nonabo.tpl");?>
 
-		<h1> Louer un vehicule ici! </h1>
+		<h1> Bienvenue sur notre site! </h1>
+    	<h2> Veuillez vous connecter pour pouvoir louer un vehicule. </h2>
+
 
 
 
@@ -30,7 +32,7 @@
 						echo "<tr class='contact'>";
 						echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
 						echo ("<td>" . $c['caract'] . "</td>");
-						echo ("<td> <img src=".$chemin." width='150px' height='...'> </td>");
+						echo ("<td> <img src=".$chemin." width='175px' height='...'> </td>");
 						echo "</tr>\n";
 					}
 					echo ('</table>');
@@ -41,28 +43,7 @@
 			?>
 		</div>
 
-	<h1> Veuillez remplir le formulaire suivant pour louer un vehicule: </h1>
 
-		<form action="index.php?controle=abo&action=louer" method="post">
-                <SELECT name="id" size=1>
-            	<?php    foreach ($Contact as $c) {
-                    echo("<OPTION value=".$c['id'].">" . $c['type'] . "</OPTION>");
-                } 	?>
-                </SELECT>
-
-								<label for="start">Date de début:</label>
-
-            <input type="date" id="start" name="DateD" min="2020-01-01" max="2021-11-01">
-
-
-            <label for="end">Date de fin:</label>
-
-            <input type="date" id="end" name="DateF"
-
-                   min="2020-11-01" max="2021-11-01">
-
-									  <input type= "submit"  value="Louer">
-                </form>
 
 
 	</body>

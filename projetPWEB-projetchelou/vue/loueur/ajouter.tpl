@@ -20,6 +20,10 @@
     <br/>
 
     <input  name="caract"  type="text"  value= "">
+    Prix par mois
+    <br/>
+    <input 	name="prix" 	type="number" value= "">
+
     Photo
     <br/>
 

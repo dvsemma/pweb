@@ -22,7 +22,7 @@
 		<div id="main">
 			<?php
 				if ($Contact != false) {
-					echo ("<h2 style='color:blue'> Voici vos contacts :</h2>");
+					echo ("<h2 style='color:blue'> Voici vos locations en cours :</h2>");
 					echo ('<table>');
 					echo ('<tr><th> Type </th><th> Caractéristiques </th><th> Photo </th></tr>');
 					foreach ($Contact as $c) {
@@ -30,7 +30,7 @@
 						echo "<tr class='contact'>";
 						echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
 						echo ("<td>" . $c['caract'] . "</td>");
-						echo ("<td> <img src=".$chemin."> </td>");
+						echo ("<td> <img src=".$chemin." width='150px' height='...'> </td>");
 						echo "</tr>\n";
 					}
 					echo ('</table>');

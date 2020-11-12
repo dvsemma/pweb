@@ -9,10 +9,10 @@ error_reporting(E_ALL);
 	if ((count($_GET)!=0) && !(isset($_GET['controle']) && isset ($_GET['action'])))
 	require('./vue/erreur404.tpl'); //cas d'un appel à index.php avec des paramètres incorrects
 
-	else {
-		if ((! isset($_SESSION['profil'])) || count($_GET)==0)	{ // action par defaut.... notamment en cas de personne non authentifiée
+	else { //changer par && si ca marche pas
+		if (( !isset($_SESSION['profil'])) && count($_GET)==0)	{ // action par defaut.... notamment en cas de personne non authentifiée
 			$controle = "utilisateur";   //cas d'une personne non authentifiée
-			$action = "ident";		//ou d'un appel à index.php sans paramètre
+			$action = "bienvenue";		//ou d'un appel à index.php sans paramètre
 		}
 		else {
 			if (isset($_GET['controle']) && isset ($_GET['action'])) {

@@ -19,6 +19,7 @@ function enLocation(){
 function ajouterVehicule(){
   $type = isset($_POST['type'])?trim($_POST['type']):'';
   $caract = isset($_POST['caract'])?trim($_POST['caract']):'';
+  $prix = isset($_POST['prix'])?trim($_POST['prix']):'';
   $photo = isset($_POST['photo'])?trim($_POST['photo']):'';
   $msg = "";
 
@@ -28,15 +29,14 @@ function ajouterVehicule(){
   if  (count($_POST)==0)
               require("./vue/loueur/ajouter.tpl") ;
   else {
-      if  (!verif_voiture($type,$caract,$photo)) {
+      if  (!verif_voiture($type,$caract,$prix,$photo)) {
           $msg ="Erreur de saisie";
           require("./vue/loueur/ajouter.tpl") ;
     }
       else {
-      ajouter($type,$caract,$photo);
+      ajouter($type,$caract,$prix,$photo);
       echo "Un nouveau vehicule à été ajouté à votre stock!";
-      $nexturl = "index.php?controle=loueur&action=ajouterVehicule";
-      header("Location:" . $nexturl); // On retourne à la page index !!!
+      require("./vue/loueur/ajouter.tpl") ;
 
     }
   }
@@ -86,33 +86,66 @@ function verif_voiture($type,$caract,$photo) { // verification des parametres po
 
 
 function retirerVehicule(){
-
-  require("modele/contactBD.php");
-  $Contact = voituresDispo();
-
-  $type = isset($_POST['type'])?trim($_POST['type']):''; //comment recuperer id???
+  //$Type = $_POST['type'];
+  $Ident = isset($_POST['id']); //comment recuperer id???
   $msg = "";
 
+  require("modele/contactBD.php");
   require("modele/loueurBD.php");
 
-  if  (count($_POST)==0)
+
+  if  (!$_POST) {
+              $Contact = voituresDispo();
               require("./vue/loueur/retirer.tpl") ;
+  }
   else {
-    if(empty($_POST['type'])) {
-          $msg ="Vous n'avez pas sélectionné de véhicule ";
+    if(!$_POST['id']) {
+          echo "Vous n'avez pas sélectionné de véhicule ";
+            $Contact = voituresDispo();
           require("./vue/loueur/retirer.tpl") ;
     }
       else {
-      retirer($id);
-      echo "Le vehicule a bien été retiré de votre stock";
-      $nexturl = "index.php?controle=loueur&action=retirerVehicule";
-      header("Location:" . $nexturl); // On retourne à la page index !!!
+        foreach($_POST['id'] as $t){
+            $id = $t;
+          //  $id = getIdVoiture($voit);
+            retirer($id);
+        }
+
+      echo "Le (les) vehicule(s) a (ont) bien été retiré(s) de votre stock";
+      $Contact = voituresDispo();
+      require("./vue/loueur/retirer.tpl") ;
+      //}
 
     }
   }
 }
 
+
 function factures(){
+  $client = isset($_POST['client'])?trim($_POST['client']):''; //comment recuperer id???
+  require("modele/loueurBD.php");
+
+    if  (count($_POST)==0) {
+      $Client = getClients();
+      require("./vue/loueur/factures.tpl") ;
+    }
+    else {
+        if  (empty($_POST['client'])) {
+            $msg ="Vous n'avez pas saisi de client.";
+            require("./vue/loueur/factures.tpl") ;
+      }
+        else {
+        $Client = getClients();
+        $Factures = getFacture($client);
+        require("./vue/loueur/factures.tpl") ;
+        //$nexturl = "index.php?controle=loueur&action=factures";
+        //header("Location:" . $nexturl); // On retourne à la page index !!!
+
+      }
+    }
+
+
+
 
 }
 

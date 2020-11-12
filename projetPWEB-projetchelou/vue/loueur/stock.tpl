@@ -30,7 +30,7 @@
 						echo "<tr class='contact'>";
 						echo ("<td>" . $c['type'] . "</td>"); // utf8_encode($c['nom']) si nécessaire
 						echo ("<td>" . $c['caract'] . "</td>");
-						echo ("<td> <img src=".$chemin."> </td>");
+						echo ("<td> <img src=".$chemin." width='150px' height='...'> </td>");
 						echo "</tr>\n";
 					}
 					echo ('</table>');

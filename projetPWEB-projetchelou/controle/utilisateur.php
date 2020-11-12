@@ -76,12 +76,27 @@
 
 
 
-	function accueil() {
+	function accueil() { //reussir a recup l'id correctement
 		require("modele/contactBD.php");
-		$idn = session_id(); //$_SESSION['profil']['id'];
-		$Contact = contactsBD($idn);
+		require("modele/aboBD.php");
+
+		$id = getIdAbo();
+		foreach($id as $t){
+				$ident = $t;
+		}
+		//$idn = $_SESSION['profil']['id'];//session_id();
+	//	echo $idn; //$_SESSION['profil']['id'];
+		$Contact = contactsBD($ident);
 		require("vue/utilisateur/accueil.tpl");
 		}
+
+
+		function bienvenue() { //reussir a recup l'id correctement
+			require("modele/contactBD.php");
+			$Contact = voituresDispo();
+			require("./vue/utilisateur/accueilnonabo.tpl") ;
+		//	echo $idn; //$_SESSION['profil']['id'];
+			}
 
 
 
@@ -99,7 +114,7 @@
 								 return false;
 	           }
 
-	           //vérification de la taille du nom : ne dépasse pas 25 caractères
+	           //vérification de la taille du nom : ne dépasse pas 100 caractères
 	           elseif(strlen($_POST['nom'])>100){
 	               echo "Le nom est trop long, il dépasse 100 caractères.";
 								  return false;
@@ -116,13 +131,13 @@
 	               echo "L'adresse mail est invalide";
 	           }
 
-	           //Champ nom vide
+	           //Champ mdp vide
 	           if(empty($_POST['mdp'])){
 	               echo "Vous n'avez pas renseigné de mot de passe.";
 								  return false;
 	           }
 
-	           //vérification de la taille du nom : ne dépasse pas 25 caractères
+	           //vérification de la taille du mdp : plus de 4 caract
 	           elseif(strlen($_POST['mdp'])<4){
 	               echo "Votre mot de passe est trop court.";
 								  return false;

@@ -34,7 +34,7 @@ function voituresDispo() {
 	require ("Modele/connectBD.php") ;
 
 
-	$sql = 'SELECT type, caract, photo FROM vehicule v
+	$sql = 'SELECT id, type, caract, photo FROM vehicule v
 	WHERE v.location LIKE "disponible"'; //(to_date(sysdate,"DD/MM/YYYY")
 /*	$sql = 'SELECT type, caract, photo, FROM vehicule v
 	WHERE v.location=:id'; // LIMIT ne marche pas en MS SQL SERVER */
